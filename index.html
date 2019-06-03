@@ -1,0 +1,149 @@
+T<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style type="text/css">
+		.window{
+			height: 400px;
+			width:400px;
+			
+			position: absolute;
+			top:-50%;
+			transition: 1s;
+			left:40%;
+		}
+	</style>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="game">
+		<h1 class="text-center">POINTS</h1>
+		<h1 class="points text-center ">0</h1>
+		
+
+		<div class="container">
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake w-75" src="jake.png" alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png" alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+				<div class="col-3 border" style="height: 300px; background: #fbbb11">
+					<img class="jake" src="jake.png"  alt="" style="display: none">
+					<img class="king w-75" src="Ice_King.png" alt="" style="display: none">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="window"></div>
+
+
+	<script>
+		let points = document.querySelector(".points")
+		let Jake = document.querySelectorAll(".jake")
+		let king = document.querySelectorAll(".king")
+		let score = 0
+
+		let interv = function(){
+			let rand = Math.random()*8
+			let round = Math.round(rand) 
+			Jake[round].style.display = "block";
+			let proverka = function() {//создание функции
+				Jake[round].style.display = "none";
+
+			}
+			setTimeout(proverka,700) //таймер
+
+
+		}
+		setInterval(interv,900)
+
+		for(let index = 0; index<8; index = index + 1){//цикл
+			Jake[index].onclick = function(){
+				Jake[index].style.display = "none";
+				score = score + 1
+				points.innerHTML = score;
+
+			}
+
+		}
+
+
+
+		let interv1 = function(){
+			let rand = Math.random()*8
+			let round = Math.round(rand) 
+			king[round].style.display = "block";
+			let proverka1 = function() {//создание функции
+				king[round].style.display = "none";
+				
+
+
+			}
+			setTimeout(proverka1,1500) //таймер
+
+
+		}
+		setInterval(interv1,2000)
+
+		for(let index = 0; index<8; index = index + 1){//цикл
+			king[index].onclick = function(){
+				king[index].style.display = "none";
+				score = score - 10
+				points.innerHTML = score;
+			}
+
+		}
+
+			let usl = function() {//создание функции
+					{
+						if ( score >= 10   ) {//условие
+						alert("молодец")
+					
+						}
+						else {
+							alert('ты проиграл')
+						}
+					}
+			}
+			setTimeout(usl,8000) //таймер
+
+
+
+		
+		
+
+
+
+
+
+	</script>
+</body>
+</html>
